@@ -54,12 +54,12 @@ function getTotalOfCategory() {
     knexInstance
         .select('item_category').sum('item_price')
         .from('shopping_list')
-        //.where({category: `${category}`}) //**will this work in place of groupBy?
         .groupBy('item_category')
-
         .then(result => {
             console.log(result)
+            process.exit()
         })
 }
 
 getTotalOfCategory()
+console.log("exit")
